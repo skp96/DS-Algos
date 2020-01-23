@@ -181,13 +181,3 @@ function pathFinder(directories, targetFile) {
 	}
 	return null;
 }
-
-module.exports = {
-	lucasNumber,
-	sumArray,
-	reverseString,
-	pow,
-	flatten,
-	fileFinder,
-	pathFinder
-};
