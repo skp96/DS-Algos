@@ -66,7 +66,7 @@ class LinkedList
     return nil if @head == nil
     current_head = @head
     @head = current_head.next_node
-    @length += 1
+    @length -= 1
     if @length == 0
       @tail = nil
     end
