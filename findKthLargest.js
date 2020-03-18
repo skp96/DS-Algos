@@ -68,3 +68,11 @@ class MaxHeap {
 		return max;
 	}
 }
+
+const findKthLargest = (nums, k) => {
+	const heap = new MaxHeap();
+
+	nums.forEach((num) => heap.insert(num));
+	for (let i = 1; i < k; i++) heap.deleteMax();
+	return heap.deleteMax();
+};
