@@ -76,3 +76,9 @@ const findKthLargest = (nums, k) => {
 	for (let i = 1; i < k; i++) heap.deleteMax();
 	return heap.deleteMax();
 };
+
+// const findKthLargest = (nums, k) => {
+// 	nums.sort((a, b) => a - b);
+
+// 	return nums[nums.length - k];
+// };
