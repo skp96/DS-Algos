@@ -52,7 +52,6 @@
 //
 // lruCache.set('g', G);
 //
-const { List } = require('./doubly_linked_list');
 
 class LRUCacheItem {
 	constructor(val = null, key = null) {
