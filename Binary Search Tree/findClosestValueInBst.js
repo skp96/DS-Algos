@@ -35,4 +35,4 @@ function findClosestValueInBstRecur(tree, target, closest) {
 }
 
 // Time Complexity - O(n) - Worst Case, Average - O(log(n))
-// Space Complexity - O(n)
+// Space Complexity - O(n) - Worst Case, Average - O(log(n))
