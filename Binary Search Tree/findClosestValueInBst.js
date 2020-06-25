@@ -15,3 +15,24 @@ function findClosestValueInBst(tree, target) {
 	}
 	return closestNode;
 }
+
+// Time Complexity - O(n) - Worst Case, Average - O(log(n))
+// Space Complexity - O(1)
+
+function findClosestValueInBstRecur(tree, target, closest) {
+	if (!tree) return closest;
+	if (Math.abs(target - tree.value) < Math.abs(target - closest)) {
+		closest = tree.value;
+	}
+
+	if (target < tree.value) {
+		return findClosestValueInBstRecur(tree.left, target, closest);
+	} else if (target > tree.value) {
+		return findClosestValueInBstRecur(tree.right, target, closest);
+	} else {
+		return closest;
+	}
+}
+
+// Time Complexity - O(n) - Worst Case, Average - O(log(n))
+// Space Complexity - O(n)
