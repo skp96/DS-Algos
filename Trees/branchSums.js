@@ -6,8 +6,6 @@ class BinaryTree {
 	}
 
 	branchSums(root, sum = 0, result = []) {
-		if (!root) return sum;
-
 		sum += root.value;
 		if (!root.left && !root.right) {
 			result.push(sum);
@@ -18,3 +16,6 @@ class BinaryTree {
 		return result;
 	}
 }
+
+// Time Complexity - O(n)
+// Space Complexity - O(n)
