@@ -9,3 +9,4 @@ def insertion_sort(array)
   end
   return array
 end
+
