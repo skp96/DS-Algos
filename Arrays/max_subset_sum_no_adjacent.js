@@ -11,3 +11,6 @@ function maxSubsetSumNoAdjacent(array) {
 	}
 	return table[table.length - 1];
 }
+
+// Time Complexity: O(n)
+// Space complexity: O(n)
