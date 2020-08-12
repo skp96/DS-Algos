@@ -2,11 +2,11 @@ function maxSumOfKConsecutive1(n, array, k) {
 	let max_sum = -Infinity;
 
 	for (let i = 0; i < n - k + 1; i++) {
-		let num1 = array[i];
-		for (let j = i; j < k; j++) {
-			let num2 = array[i + j];
-			max_sum = Math.max(max_sum, num1 + num2);
+		let sum = 0;
+		for (let j = 0; j < k; j++) {
+			sum += array[i + j];
 		}
+		max_sum = Math.max(max_sum, sum);
 	}
 	return max_sum;
 }
@@ -33,7 +33,7 @@ function maxSumOfKConsecutive2(n, array, k) {
 // Space Complexity: O(1);
 
 const n = 4;
-const nums = [ 100, 200, 300, 400 ];
-const k = 2;
+const nums = [ 100, 200, 600, 400 ];
+const k = 3;
 
-console.log(maxSumOfKConsecutive2(n, nums, k));
+console.log(maxSumOfKConsecutive1(n, nums, k));
