@@ -3,8 +3,10 @@ function maxSumOfKConsecutive1(n, array, k) {
 
 	for (let i = 0; i < n - k + 1; i++) {
 		let sum = 0;
-		for (let j = 0; j < k; j++) {
-			sum += array[i + j];
+		for (let j = i; j < k + i; j++) {
+			// for (let j = 0; j < k; j++)
+			// sum += array[i + j]
+			sum += array[j];
 		}
 		max_sum = Math.max(max_sum, sum);
 	}
