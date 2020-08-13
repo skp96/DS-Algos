@@ -35,7 +35,8 @@ function minWindowSubstring(s, t) {
 	return s.slice(start, start + minLen);
 }
 
-// Time Complexity: O(s)
+// Time Complexity: O(s + t)
 // Space Complexity: O(t)
 
-console.log(minWindowSubstring('aaab', 'aba'));
+// console.log(minWindowSubstring('aaab', 'aba'));
+console.log(minWindowSubstring('bdc', 'bc'));
