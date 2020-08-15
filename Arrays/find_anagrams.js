@@ -22,6 +22,7 @@ function findAnagrams(s, p) {
 
 		while (counter === 0) {
 			let anagram = s.slice(start, finish + 1);
+			console.log(anagram);
 			if (anagram.length === p.length) result.push(start);
 
 			if (freq[s[start]] !== undefined) {
@@ -41,4 +42,4 @@ function findAnagrams(s, p) {
 
 // console.log(findAnagrams('abab', 'ab'));
 // console.log(findAnagrams('cbaebabacd', 'abc'));
-console.log(findAnagrams('abcdefghijklmnopqrstuvwxyz', 'abcdefghijklmnopqrstuvwxyz'));
+// console.log(findAnagrams('abcdefghijklmnopqrstuvwxyz', 'abcdefghijklmnopqrstuvwxyz'));
