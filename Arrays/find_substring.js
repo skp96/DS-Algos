@@ -36,7 +36,7 @@ function findSubString1(s, words) {
 // Time Complexity: O(n-k) * k, where k is the window size
 // Space Complexity: O(w), where w is the total number of words in the words array
 
-function findSubString(s, words) {
+function findSubString2(s, words) {
 	const wordSize = words[0].length;
 	const windowSize = wordSize * words.length;
 	const result = [];
@@ -59,7 +59,6 @@ function findSubString(s, words) {
 			finish = i;
 
 		while (finish + wordSize - 1 < s.length) {
-			// want to iterate up to last char in string, since we are indexing subtract by 1
 			const finishSubString = s.substr(finish, wordSize);
 
 			if (reference[finishSubString] !== undefined) {
@@ -68,7 +67,6 @@ function findSubString(s, words) {
 			}
 
 			if (finish + wordSize - start === windowSize) {
-				// location of the finish character + word size will give us the right bound of the window, and start gives us the left bound of the window, if you substract the two, you get the windowSize
 				if (refCounter === 0) {
 					result.push(start);
 				}
