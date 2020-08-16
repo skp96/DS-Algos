@@ -45,7 +45,6 @@ function lengthOfLongestSubString2(s) {
 		if (end - begin > len) {
 			len = end - begin;
 			longest = s.substr(begin, end - begin);
-			console.log(longest, begin, end, seen);
 		}
 	}
 	return longest;
