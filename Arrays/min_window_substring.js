@@ -32,11 +32,11 @@ function minWindowSubstring(s, t) {
 		}
 		right++;
 	}
-	return s.slice(start, start + minLen);
+	return s.substr(start, start + minLen);
 }
 
 // Time Complexity: O(s + t)
 // Space Complexity: O(t)
 
-// console.log(minWindowSubstring('aaab', 'aba'));
-console.log(minWindowSubstring('bdc', 'bc'));
+console.log(minWindowSubstring('aaab', 'aba'));
+// console.log(minWindowSubstring('bdc', 'bc'));
