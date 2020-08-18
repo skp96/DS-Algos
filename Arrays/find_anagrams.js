@@ -33,7 +33,6 @@ function findAnagrams(s, p) {
 		}
 		finish++;
 	}
-	console.log(freq);
 	return result;
 }
 
