@@ -29,7 +29,7 @@ function findSubString2(text, word) {
 		} else if (len > 0) {
 			len = lps[len - 1];
 		} else {
-			lps[j] = 0;
+			lps.push(0);
 			j++;
 		}
 	}
