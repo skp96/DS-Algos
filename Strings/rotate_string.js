@@ -42,7 +42,7 @@ function rotateString2(text, word) {
 	return word.slice(j) === text.slice(0, text.length - j);
 }
 
-// Time Complexity: O(t), where t is length of text
+// Time Complexity: O(t)
 // Time Complexity: O(w), where w is the length of word
 
 // console.log(rotateString('abcde', 'abced'));
