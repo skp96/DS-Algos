@@ -3,25 +3,23 @@ def smallestDifference(arrayOne, arrayTwo):
     arrayTwo.sort()
     idxOne = 0
     idxTwo = 0
-    smallest = float('inf')
-    current = float('inf')
+    smallestDiff = float('inf')
     smallestPair = []
 
     while idxOne < len(arrayOne) and idxTwo < len(arrayTwo):
         firstNum = arrayOne[idxOne]
         secondNum = arrayTwo[idxTwo]
+        diff = abs(firstNum - secondNum)
+
+        if diff == 0:
+            return [firstNum, secondNum]
+        elif diff < smallestDiff:
+            smallestDiff = diff
+            smallestPair = [firstNum, secondNum]
 
         if firstNum < secondNum:
-            current = secondNum - firstNum
             idxOne += 1
-        elif firstNum > secondNum:
-            current = firstNum - secondNum
-            idxTwo += 1
         else:
-            return [firstNum, secondNum]
-
-        if smallest > current:
-            smallest = current
-            smallestPair = [firstNum, secondNum]
+            idxTwo += 1
 
     return smallestPair
