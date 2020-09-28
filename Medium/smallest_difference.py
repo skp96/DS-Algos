@@ -23,3 +23,6 @@ def smallestDifference(arrayOne, arrayTwo):
             idxTwo += 1
 
     return smallestPair
+
+# Time Complexity: O(nlog(n)) + O(mlog(m))
+# Space Complexity: O(1)
