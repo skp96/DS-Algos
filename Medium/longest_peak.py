@@ -26,9 +26,9 @@ def longestPeak(array):
 
 			lengthOfPeak = right - left + 1
 
-			if lengthOfPeak > longestPeak:
-				longestPeak = lengthOfPeak
-
+			longestPeak = max(lengthOfPeak, longestPeak)
+      i = right + 1
+      
 	return longestPeak
 
   # Time Complexity: O(n)
