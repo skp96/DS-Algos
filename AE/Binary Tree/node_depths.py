@@ -9,10 +9,10 @@
   - recursive solution:
     - base case, if node is None return 0
     - starting at the root node, our depth would be 0
-    - we then want to add to the depth, the result from recursively calling the function on node.left and node.right
+    - we then want to add to the depth of the current node (e.g. root node), the result from recursively calling the function on the children node (node.left and node.right)
     - NOTE that with each recurisive call, we are travelling down a level in the tree, so increment depth by 1
   - iterative solution:
-    - BFS approach so use a queue
+    - BFS approach so use a queue --> why? when looking at the depth of a child node, we are looking a level deeper from where we are
     - init a queue that will hold an object {node: root, depth: 0}
     - init a variable to keep track of sum of depth 
     - while the length of the stack is greater than 0
