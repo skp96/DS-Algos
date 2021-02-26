@@ -24,10 +24,10 @@ def minimum_time_waiting(queries):
     waiting_time_dict = {0: 0}
 
     for idx in range(1, len(queries)):
-        previous_query = queries[idx - 1]
+        previous_query_duration = queries[idx - 1]
         previous_query_waiting_time = waiting_time_dict[idx - 1]
 
-        current_waiting_time = previous_query + previous_query_waiting_time
+        current_waiting_time = previous_query_duration + previous_query_waiting_time
 
         waiting_time_dict[idx] = current_waiting_time
 
