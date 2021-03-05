@@ -48,3 +48,6 @@ def add_two_numbers(l1, l2):
       l2 = l2.next if l2 else None
 
     return head.next
+
+# Time Complexity: O(m + n)
+# Space Complexity: O(max(m,n))
