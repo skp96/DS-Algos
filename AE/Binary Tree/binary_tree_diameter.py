@@ -43,7 +43,7 @@ def get_binary_tree_diameter(tree):
     max_diameter_so_far = max(
         left_tree_node_info.diameter, right_tree_node_info.diameter)
     current_diameter = max(path_through_sub_root, max_diameter_so_far)
-    current_height = 1 + max(eft_tree_node_info.height,
+    current_height = 1 + max(left_tree_node_info.height,
                              right_tree_node_info.height)
 
     return TreeNodeInfo(current_diameter, current_height)

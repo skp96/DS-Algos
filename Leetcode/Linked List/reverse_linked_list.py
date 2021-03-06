@@ -18,7 +18,7 @@ class Solution:
             previous_node = current_node
             current_node = next_node
 
-        return current_node
+        return previous_node
 
 # Time Complexity: O(n)
 # Space Complexity: O(1)
