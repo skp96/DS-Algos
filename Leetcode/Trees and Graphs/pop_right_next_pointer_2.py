@@ -1,9 +1,8 @@
 class Node:
-    def __init__(self, val=0, left=None, right=None, next=None):
+    def _init__(self, val=0, left=None, right=None, next=None):
         self.val = val
         self.left = left
         self.right = right
-        self.next = next
 
 
 class Solution:
@@ -23,8 +22,11 @@ class Solution:
             else:
                 node.next = None
 
-            queue.append((node.left, depth + 1))
-            queue.append((node.right, depth + 1))
+            if node.left:
+                queue.append((node.left, depth + 1))
+
+            if node.right:
+                queue.append((node.right, depth + 1))
 
         return root
 
