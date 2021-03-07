@@ -30,6 +30,8 @@ class Solution:
 
         return right_tail if right_tail else left_tail
 
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def flatten_iter(self, root):
         # since using the call stack will be inefficient when working with large binary trees, the idea is to build a custom stack that will be allocated memory on the heap. Heap memory is larger than stack memory. Goal is to use the custom stack and mimic the different recursion states.
         if not root:
@@ -53,7 +55,7 @@ class Solution:
             if recursion_state == START:
                 if current_node.left:
                   # recall when solving the problem recursively, until the left hasn't been searched completely the root node doesn't come off the call stack
-                  # or we can interpret this as; we're done processing one side of the current node (e.g. left), and we will need to rewire the connection to form a right skewed linked list, so we add current_node back to the stack so we can access its right node and rewire the connection.
+                  # or we can interpret this as; we're going to be processing one side of the current node (e.g. left), and we will need to rewire the connection to form a right skewed linked list, so we add current_node back to the stack so we can access its right node and rewire the connection.
                     stack.append((current_node, END))
                     stack.append((current_node.left, START))
                 elif current_node.right:
@@ -73,5 +75,24 @@ class Solution:
                 if right_node:
                     stack.append((right_node, START))
 
-# Time Complexity: O(n)
-# Space Complexity: O(n)
+    # Time Complexity: O(n), at most we process each node twice: as node, and right most. Slower than the other two; however, doesn't use additional space
+    # Space Complexity: O(1)
+    def flatten_optimized(self, node):
+        if not root:
+            return None
+
+        node = root
+
+        while node:
+            if node.left:
+                # find the last node in rightmost branch of the left subtree
+                right_most = node.left
+                while right_most.right:
+                    right_most = right_most.right
+
+                right_most.right = node.right
+                node.right = node.left
+                node.left = None
+
+            # if the node doesn't have a left child, we move on to the right
+            node = node.right
