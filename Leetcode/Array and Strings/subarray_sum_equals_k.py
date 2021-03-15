@@ -10,7 +10,7 @@
     - now that we have a new sum, add it to our dictionary
       - if it already exists, we increment its counter by 1 since we've come across it again
       - else we add it and give it a frequency of 1
-
+    return count
 """
 
 
@@ -34,4 +34,17 @@ class Solution:
         return count
 
 # Time Complexity: O(n)
+# Space Complexity: O(1)
+    def sub_array_sum(self, nums, k):
+        count = 0
+        for start in range(len(nums)):
+            sum = 0
+            for end in range(start, len(nums)):
+                sum += nums[end]
+                if sum == k:
+                    count += 1
+
+        return count
+
+# Time Complexity: O(n^2)
 # Space Complexity: O(1)
