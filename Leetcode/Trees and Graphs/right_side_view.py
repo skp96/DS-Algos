@@ -36,7 +36,7 @@ class Solution:
             return []
 
         right_side = []
-        queue = [1, None]
+        queue = [root, None]
 
         while queue:
             current_level_node = queue.pop(0)
@@ -50,7 +50,7 @@ class Solution:
                 previous = current_level_node
                 current_level_node = queue.pop(0)
 
-            right_side.append(previous.value)
+            right_side.append(previous.val)
 
             if queue:
                 queue.append(None)
