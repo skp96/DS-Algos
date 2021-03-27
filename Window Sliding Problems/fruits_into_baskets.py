@@ -42,8 +42,7 @@ def fruits_into_basket_optimized(fruits):
 
   for window_end in range(len(fruits)):
     fruit = fruits[window_end]
-    if fruit not in fruit_freq:
-      fruit_freq[fruit] += 1
+    fruit_freq[fruit] += 1
     
     while len(fruit_freq) > 2:
       fruit = fruits[window_start]
