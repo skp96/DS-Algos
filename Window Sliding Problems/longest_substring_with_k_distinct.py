@@ -1,5 +1,5 @@
 """
-- Problem: Given a string, find the length of the longest substring in it with no more than K distinct characters.
+- Problem: Given a string, find the length of the longest substring with no more than K distinct characters.
 - Examples:
   - Input: String="araaci", K=2
   - Output: 4
