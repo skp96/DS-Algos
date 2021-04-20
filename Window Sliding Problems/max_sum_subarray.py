@@ -9,29 +9,33 @@
   - Explanation: Subarray with maximum sum is [3, 4].
 """
 
-def max_sub_array_of_size_k_brute(k, arr):
+def max_sum_subarray_brute(k, arr):
   max_sum = 0
-
-  for i in range(len(arr) - k + 1):
-    total = 0
-    for j in range(i, i + k ):
-      total += arr[j]
-    max_sum = max(max_sum, total)
+  for idx1 in range(len(arr)-k+1):
+    sum = 0
+    for idx2 in range(idx1, idx1+k):
+      sum += arr[idx2]
+    
+    max_sum = max(max_sum, sum)
+  
   return max_sum
 
-# Time Complexity: O(N * K), where N is the total number of elements in the array
+# Time Complexity: O(N*K), where N is the number of elements in the array and K is the next number of elements explored for every element
 # Space Complexity: O(1)
 
-def max_sub_array_of_size_k_optimized(k, arr):
-  max_sum = 0
+def max_sum_subarray_opt(k, arr):
+  max_sum, window_sum = 0
   window_start = 0
-  window_sum = 0
+
   for window_end in range(len(arr)):
     window_sum += arr[window_end]
-    if window_end >= k - 1:
-      max_sum = max(max_sum, window_sum)
+
+    if window_end >= k:
       window_sum -= arr[window_start]
       window_start += 1
+    
+    max_sum = max(max_sum, window_sum)
+  
   return max_sum
 
 # Time Complexity: O(N)
