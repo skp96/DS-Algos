@@ -48,10 +48,10 @@ def no_repeat_substring_optimized(str):
   for window_end in range(len(str)):
     char = str[window_end]
 
-    if char not in visited:
+    if char in visited and visited[char] >= window_start:
+      window_start = visited[char] + 1
       visited[char] = window_end
     else:
-      window_start = visited[char] + 1
       visited[char] = window_end
 
     longest_length = max(longest_length, window_end - window_start + 1)
