@@ -35,7 +35,7 @@ const lengthOfLongestSubarrayBrute = (arr, k) => {
 // Time Complexity: O(N^3)
 // Space Complexity: O(1)
 
-const lengthOfLongestSubstringOpt = (arr, k) => {
+const lengthOfLongestSubarrayOpt = (arr, k) => {
   let onesFreq = 0, maxLength = 0, windowStart = 0;
 
   for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
