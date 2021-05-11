@@ -6,7 +6,7 @@ class Node {
 }
 
 
-const is_palindromic_linked_list= function(head) {
+const is_palindromic_linked_list = (head) => {
   let slow = head;
   let fast = head;
   
