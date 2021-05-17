@@ -16,7 +16,7 @@ const merge = (intervals_a, intervals_b) => {
 
   while (i < intervals_a.length && j < intervals_b.length) {
     // check if intervals overlap and a's start time lies within b's interval
-    const a_overlaps_b = intervals_a[i].start >= intervals_b[j] && intervals_a[i].start <= intervals_b[j].end
+    const a_overlaps_b = intervals_a[i].start >= intervals_b[j].start && intervals_a[i].start <= intervals_b[j].end
 
     // check if intervals overlap and b's start time lies within a's interval
     const b_overlaps_a = intervals_b[j].start >= intervals_a[i].start && intervals_b[j].start <= intervals_a[i].end
