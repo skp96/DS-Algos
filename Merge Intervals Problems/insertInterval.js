@@ -1,38 +1,46 @@
-const insert = function(intervals, new_interval) {
-  // first things first, insert the new interval into existing ones.
-  let updatedIntervals = insertHelper([...intervals], new_interval);
-  let merged = [];
-  let start = updatedIntervals[0].start;
-  let end = updatedIntervals[0].end;
-  for (let i = 1; i < updatedIntervals.length; i++) {
-    let currInterval = updatedIntervals[i];
-    if (currInterval.start <= end) {
-      end = Math.max(end, currInterval.end);
-    } else {
-      merged.push(new Interval(start, end));
-      start = currInterval.start;
-      end = currInterval.end;
-    }
+class Interval {
+  constructor(start, end) {
+    this.start = start;
+    this.end = end;
   }
-  merged.push(new Interval(start, end));
+
+  print_interval() {
+    process.stdout.write(`[${this.start}, ${this.end}]`);
+  }
+}
+
+const insert = (intervals, new_interval) => {
+  
+  if (intervals.length < 2) {
+    return intervals;
+  }
+  
+  const merged = [];
+  let i = 0;
+  
+  // skip and add to output all intervals that come before the new interval
+  while (i < intervals.length && intervals[i].end < new_interval.start) {
+    merged.push(intervals[i]);
+    i++
+  }
+
+  // found the location of the new interval and now check for overlaps and merge with new interval
+  while (i < intervals.length && intervals[i].start < new_interval.end) {
+    new_interval.start = Math.min(new_interval.start, intervals[i].start);
+    new_interval.end = Math.max(new_interval.end, intervals[i].end);
+    i++;
+  }
+
+  // insert new interval
+  merged.push(new_interval);
+
+  // add all remaining intervals that did not overlap with new interval
+  while (i < intervals.length) {
+    merged.push(intervals[i]);
+    i++;
+  }
   return merged;
-};
+}
 
-const insertHelper = (intervals, new_interval) => {
-  if (new_interval.start > intervals[intervals.length - 1].start) {
-    intervals.push(new_interval);
-    return intervals;
-  }
-  if (new_interval.start < intervals[0].start) {
-    intervals.unshift(new_interval);
-    return intervals;
-  }
-  for (let i = 0; i < intervals.length; i++) {
-    if (new_interval.start >= intervals[i].start && new_interval.start <= intervals[i + 1].start) {
-      intervals.splice(i + 1, 0, new_interval);
-      return intervals;
-    }
-  }
-
-// Time Complexity: O(N)
-// Space Complexity: O(N)
+// Time Complexity: O(N), where N is the total number of intervals
+// Space Complexity: O(N), where N is the size of the list containing all merged intervals
