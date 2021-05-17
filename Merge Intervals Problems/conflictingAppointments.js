@@ -20,7 +20,7 @@ const can_attend_all_appointments =  (intervals)  => {
   for (let i = 1; i < intervals.length; i++) {
     let currInterval = intervals[i];
 
-    if (currInterval.start <= end) {
+    if (currInterval.start < end) {
       return false;
     }
     start = currInterval.start;
