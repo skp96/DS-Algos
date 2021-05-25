@@ -11,7 +11,7 @@
 */
 
 const getMaxWaterContainer = (heights) => {
-  if (heights.length < 2) return null;
+  if (heights.length < 2) return 0;
 
   let maxArea = 0;
 
