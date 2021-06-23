@@ -31,7 +31,7 @@ const maxSubArrayOfSizeKOptimized = (arr, k) => {
     maxSum = Math.max(maxSum, windowSum);
   }
   return maxSum;
-}
+};
 
 // Time Complexity: O(N);
 // Space Complexity: O(1);
