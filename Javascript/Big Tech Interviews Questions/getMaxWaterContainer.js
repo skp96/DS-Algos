@@ -16,7 +16,7 @@ const getMaxWaterContainer = (heights) => {
   let maxArea = 0;
 
   for (let h1 = 0; h1 < heights.length; h1++) {
-    for (let h2 = h1+1; h2< heights.length; h2++) {
+    for (let h2 = h1+1; h2 < heights.length; h2++) {
       const calculatedArea = Math.min(heights[h1], heights[h2]) * (h2 - h1)
       maxArea = Math.max(maxArea, calculatedArea)
     }
