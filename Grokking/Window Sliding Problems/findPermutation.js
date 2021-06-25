@@ -12,9 +12,9 @@ const find_permutation = (str, pattern) => {
       let letter = str[windowEnd];
       if (letter in patternObj) {
         patternObj[letter]--;
-      }
-      if (patternObj[letter] === 0) {
-        match++;
+        if (patternObj[letter] === 0) {
+          match++;
+        }
       }
       if (match === Object.keys(patternObj).length) {
         return true;
