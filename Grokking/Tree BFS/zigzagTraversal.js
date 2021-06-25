@@ -32,3 +32,6 @@ const traverse = (root) => {
   }
   return result;
 }
+
+// Time Complexity: O(N);
+// Space Complexity: O(N);
