@@ -28,6 +28,9 @@ const isBalancedHelper = (root) => {
   return Math.max(leftHeight, rightHeight) + 1;
 }
 
+// Time Complexity: O(N), where N is the number of nodes in the binary tree;
+// Space Complexity: (H), where H is the height of the binary tree;
+
 
 const root = new TreeNode("A");
 root.left = new TreeNode("B");

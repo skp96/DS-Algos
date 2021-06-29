@@ -12,7 +12,7 @@ class TreeNode {
     this.right = null;
   }
 }
-
+// Calculates height based on edges, for number of nodes remove (-1) from line 18
 const heightOfBinaryTree = (root) => {
   if (!root) return 0;
   return heightOfBinaryTreeHelper(root) - 1;
