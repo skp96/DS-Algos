@@ -7,6 +7,7 @@ class TreeNode {
 }
 
 // Calculates height based on edges, for number of nodes return maxDepth + 1;
+// The int value stored in maxDepth is passed by value so any changes made within recursive function calls does not affect the original value. A way around this would be to define the recursive function as a closure.
 
 const heightOfBinaryTree = (root) => {
   let maxDepth = 0;
