@@ -4,6 +4,7 @@
 * The Depth of a node N is the number of edges from the root node to node N
 * The Height of a tree is the depth of the farthest leaf node from the root (maximum depth in the tree)
 * A Binary Tree with height H can have a 2^(h+1) - 1 nodes
+* A Binary Tree is considered Balanced if the left and right subtrees differ in Height by at most 1
 
 # Bottom to Top Approach:
 
