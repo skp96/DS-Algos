@@ -1,5 +1,6 @@
 # Heaps
 
+
 * Heaps are Complete Binary Trees
 
 * Useful in applications where you want to sort and implement priority queues
