@@ -95,6 +95,8 @@ class MinHeap {
   };
 
   _percolateUp(index) {
+    // Time Complexity: O(logN)
+
     const parent = Math.floor((index - 1) / 2);
     if (index <= 0) {
       return;
@@ -105,6 +107,8 @@ class MinHeap {
   }
 
   _minHeapify(index) {
+    // Time Complexity: O(logN)
+    
     const left = 2 * index + 1;
     const right = 2 * index + 2;
     let smallest = index;
