@@ -37,6 +37,10 @@ const smallestDifferenceOptimized = (arrayOne, arrayTwo) => {
 
     const absoluteDiff = Math.abs(num1 - num2);
 
+    if (absoluteDiff === 0) {
+      return [num1, num2]
+    }
+
     if (absoluteDiff < smallest) {
       smallest = absoluteDiff;
       result = [num1, num2]

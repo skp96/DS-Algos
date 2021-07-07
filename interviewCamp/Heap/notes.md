@@ -53,3 +53,16 @@
 * O(logn) for insertion
 * O(logn) for deletion
 
+### Insertion in Min Heap:
+
+1. Create a new child node at the end of the heap
+2. Place the new key at that node (append it to the array)
+3. Percolate up until you reach the root node and the Min Heap Property is satisfied
+
+### Remove Minimum in Min Heap
+
+1. Delete the root node
+2. Move the key of the last child node to root
+3. Min Heapify down: if the key is larger than the key at any of the child nodes, swap values
+4. Repeat until you reach the last node
+
