@@ -38,4 +38,4 @@ const spiralTraverse = (array) => {
 }
 
 // Time Complexity: O(N), where N is the total number of elements in the input matrix
-// Space Complexity: O(N), where N is the total number of elements stored in the array
+// Space Complexity: O(N), where N is the total number of elements stored in the output array
