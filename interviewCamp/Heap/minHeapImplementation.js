@@ -1,4 +1,4 @@
-class MaxHeap {
+class MinHeap {
   constructor() {
     this.heap = [];
     this.size = 0;
@@ -8,7 +8,7 @@ class MaxHeap {
     this.heap = arr;
     this.size = this.heap.length;
     for (var i = this.heap.length - 1; i >= 0; i--){
-      this.__maxHeapify(i)
+      this.minHeapify(i)
     }
   }
 
@@ -25,58 +25,53 @@ class MaxHeap {
       this.size += 1;
       this._percolateUp(this.size - 1);
     }
-  };
+  }
 
-  getMax() {
+  getMin() {
     // Time Complexity: O(1)
 
     if (this.size) {
-      return this.heap[0]
+      return this.heap[0];
     }
     return null;
-  };
+  }
 
-  removeMax() {
+  removeMin() {
     // Time Complexity: O(logn)
 
     if (this.size > 1) {
-
-      const max = this.heap[0];
+      const min = this.heap[0];
       this.heap[0] = this.heap[this.size - 1];
       this.size -= 1;
-      this._maxHeapify(0)
-      return max
-    } else if (this.size == 1) {
-      
-      const max = this.heap[0];
+      this._minHeapify(0);
+      return min;
+    } else if (this.size === 1) {
+      const min = this.heap[0];
       this.size -= 1;
-      return max;
+      return min
     } else {
-
       return null;
     }
-  };
+  }
 
   removeNode(index) {
     // Time Complexity: O(logn)
 
-    if (!this._isValid(index)) {
+    if(!this._isValid(index)) {
       return null;
     }
-    
-    if (this.size > 1) {
 
+    if (this.size > 1) {
       const node = this.heap[index];
-      this.heap[index] = this.heap[this.size - 1];
+      this.heap[index] = this.heap[this.size - 1]
       this.size -= 1;
-      if (index !== 0 && this.heap[this.parent(index)] < this.heap[index]) {
+
+      if (index !== 0 && this.heap[this._parent(index)] > this.heap[index]) {
         this._percolateUp(index);
       } else {
-        this._maxHeapify(index)
+        this.minHeapify(index);
       }
-      return node;
     } else {
-
       null;
     }
   }
@@ -100,50 +95,31 @@ class MaxHeap {
   };
 
   _percolateUp(index) {
-    // Time Complexity: O(logn)
-
-    const parent = Math.floor(index - 1 / 2)
+    const parent = Math.floor((index - 1) / 2);
     if (index <= 0) {
       return;
-    } else if (this.heap[parent] < this.heap[index]) {
+    } else if (this.heap[parent] > this.heap[index]){
       [this.heap[parent], this.heap[index]] = [this.heap[index], this.heap[parent]];
-      this._percolateUp(parent);
+      this._percolateUp(parent)
     }
-  };
+  }
 
-  _maxHeapify(index) {
-    // Time Complexity: O(logn)
-    
-
+  _minHeapify(index) {
     const left = 2 * index + 1;
     const right = 2 * index + 2;
-    let largest = index;
+    let smallest = index;
 
-    if ((this.size > left) && (this.heap[largest] < this.heap[left])) {
-      largest = left;
+    if ((this.size > left) && (this.heap[smallest] > this.heap[left])) {
+      smallest = left;
     }
 
-    if ((this.size > right) && (this.heap[largest] < this.heap[right])) {
-      largest = right;
+    if ((this.size > right) && (this.heap[smallest] > this.heap[right])) {
+      smallest = right;
     }
 
-    if (largest !== index) {
-      [this.heap[index], this.heap[largest]] = [this.heap[largest], this.heap[index]];
-      this._maxHeapify(largest);
+    if (smallest !== index) {
+      [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]]
+      this._minHeapify(smallest);
     }
-  };
-
+  }
 }
-
-const heap = new MaxHeap();
-
-heap.insert(12)
-heap.insert(10)
-heap.insert(-10)
-heap.insert(100)
-
-console.log(heap.getMax())
-
-heap.removeMax()
-
-console.log(heap.getMax())

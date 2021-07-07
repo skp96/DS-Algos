@@ -49,3 +49,7 @@
 
 * Parent <= Child in min-heaps
 * Root is the smallest element
+* O(1) lookup for the min element
+* O(logn) for insertion
+* O(logn) for deletion
+
