@@ -15,7 +15,7 @@ class Solution:
                 prev_string = stack.pop()
                 curr_string = prev_string + (num*curr_string)
             elif char.isdigit():
-                curr_num = curr_num*10 + int(c)
+                curr_num = curr_num*10 + int(char)
             else:
                 curr_string += char
 
