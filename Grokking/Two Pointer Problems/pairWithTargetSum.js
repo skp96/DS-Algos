@@ -3,15 +3,13 @@ const pair_with_targetsum = function(arr, target_sum) {
   let right = arr.length - 1;
 
   while (left < right) {
-    const num1 = arr[left];
-    const num2 = arr[right];
-
-    if (num1 + num2 === target_sum) {
+    const currSum = arr[left] + arr[right];
+    if (currSum === target_sum) {
       return [left, right]
-    } else if (num1 + num2 < target_sum) {
+    } else if (target_sum > currSum) {
       left += 1;
     } else {
-      right -= 1
+      right -= 1;
     }
   }
   return [-1, -1];
