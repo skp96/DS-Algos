@@ -6,45 +6,48 @@ class Node {
 }
 
 const locateCycleStart = (head) => {
-  let fast = head, slow = head;
-  let cycle_length = 0;
+  let fast = head;
+  let slow = head;
+  let cycleLength = 0;
+
   while (fast !== null && fast.next !== null) {
-    fast = fast.next.next
-    slow = slow.next
+    fast = fast.next.next;
+    slow = slow.next;
+
     if (fast === slow) {
-      cycle_length = calculateCycleLength(slow)
+      cycleLength = calculateCycleLength(slow);
       break
     }
   }
-  return findCycleStart(head, cycle_length)
+  return findCycleStart(cycleLength, head);
 }
 
 const calculateCycleLength = (slow) => {
-  let current = slow, cycle_length = 0
+  let currPointer = slow;
+  let length = 0;
 
-  while (true) {
-    current = current.next
-    cycle_length += 1
-    if (current === slow) {
-      break
-    }
+  while(true) {
+    currPointer = currPointer.next;
+    length += 1;
+    if (currPointer === slow) break;
   }
-  return cycle_length
+  return length;
 }
 
 const findCycleStart = (head, cycle_length) => {
-  let fast = head, slow = head;
+  let fast = head;
+  let slow = head;
 
-  while (cycle_length > 0) {
+  while (cycleLength > 0) {
     fast = fast.next
-    cycle_length -= 1
+    cycleLength -= 1;
   }
 
-  while (fast !== slow) {
-    fast = fast.next
-    slow = slow.next
+  while(fast !== slow) {
+    fast = fast.next;
+    slow = slow.next;
   }
-  return fast
+  return fast;
 }
 
 const head = new Node(1);
