@@ -16,15 +16,39 @@ const locateCycleStart = (head) => {
 
     if (fast === slow) {
       cycleLength = calculateCycleLength(slow)
+      break
     }
   }
   return findCycleStart(head, cycleLength);
 }
 
 const calculateCycleLength = (slow) => {
+  let currNode = slow;
+  let cycleLength = 0;
+
+  while (true) {
+    currNode = currNode.next;
+    cycleLength += 1;
+
+    if (currNode === slow) break;
+  }
+  return cycleLength;
 }
 
 const findCycleStart = (head, cycleLength) => {
+  let slow = head;
+  let fast = head;
+
+  while (cycleLength > 0) {
+    fast = fast.next;
+    cycleLength -= 1;
+  }
+
+  while (slow !== fast) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  return slow;
 }
 
 const head = new Node(1);
