@@ -13,18 +13,20 @@ class MedianOfAStream {
       this.minHeap.push(num);
     }
 
-    if (this.maxHeap.length > this.minHeap.length) {
-      this.minHeap.push(this.maxHeap.pop());
-    } else if (this.maxHeap.length < this.minHeap.length) {
-      this.maxHeap.push(this.minHeap.pop());
+    if(this.maxHeap.size - this.minHeap.size > 1) {
+        this.minHeap.add(this.maxHeap.poll());
+    } else if(this.minHeap.size - this.maxHeap.size > 1) {
+        this.maxHeap.add(this.minHeap.poll());
     }
-  }
+  };
 
   findMedian() {
-    if (this.maxHeap.length === this.minHeap.length) {
-      return (this.maxHeap.peek() + this.minHeap.peek()) / 2
-    } 
-    const result = this.maxHeap.length > this.minHeap.length ? this.maxHeap.peek() : this.minHeap.peek();
-    return result;
+    if(this.maxHeap.size > this.minHeap.size) {
+        return this.maxHeap.peek();
+    } else if(this.maxHeap.size < this.minHeap.size) {
+        return this.minHeap.peek();
+    } else {
+        return (this.maxHeap.peek() + this.minHeap.peek()) / 2;
+    }
   }
-}
+};
