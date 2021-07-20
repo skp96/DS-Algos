@@ -10,44 +10,21 @@ const locateCycleStart = (head) => {
   let slow = head;
   let cycleLength = 0;
 
-  while (fast !== null && fast.next !== null) {
+  while (fast && fast.next) {
     fast = fast.next.next;
     slow = slow.next;
 
     if (fast === slow) {
-      cycleLength = calculateCycleLength(slow);
-      break
+      cycleLength = calculateCycleLength(slow)
     }
   }
-  return findCycleStart(cycleLength, head);
+  return findCycleStart(head, cycleLength);
 }
 
 const calculateCycleLength = (slow) => {
-  let currPointer = slow;
-  let length = 0;
-
-  while(true) {
-    currPointer = currPointer.next;
-    length += 1;
-    if (currPointer === slow) break;
-  }
-  return length;
 }
 
-const findCycleStart = (head, cycle_length) => {
-  let fast = head;
-  let slow = head;
-
-  while (cycleLength > 0) {
-    fast = fast.next
-    cycleLength -= 1;
-  }
-
-  while(fast !== slow) {
-    fast = fast.next;
-    slow = slow.next;
-  }
-  return fast;
+const findCycleStart = (head, cycleLength) => {
 }
 
 const head = new Node(1);
