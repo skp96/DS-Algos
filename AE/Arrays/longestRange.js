@@ -20,7 +20,7 @@ const longestRangeBrute = (array) => {
     }
   }
   return values;
-}
+};
 
 // Time Complexity: O(NlogN);
 // Space Complexity: O(1) or O(N)

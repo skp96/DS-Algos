@@ -8,21 +8,21 @@ class TreeNode {
 };
 
 const find_level_averages = function(root) {
-  let result = [];
-  let queue = [root];
+  result = [];
+  const queue = [root];
 
-  while(queue.length > 0) {
-    const queueLength = queue.length;
+  while (queue.length > 0) {
+    const currentLevelLength = queue.length;
     let sum = 0;
-    for (let i = 0; i < queueLength; i++) {
+
+    for (let i = 0; i < currentLevelLength; i++) {
       const currNode = queue.shift();
       sum += currNode.value;
 
-      if (currNode.left !== null) queue.push(currNode.left);
-      if (currNode.right !== null) queue.push(currNode.right);
+      if (currNode.left) queue.push(currNode.left);
+      if (currNode.right) queue.push(currNode.right);
     }
-    const average = sum / queueLength
-    result.push(average);
+    result.push(sum / currentLevelLength);
   }
   return result;
 };

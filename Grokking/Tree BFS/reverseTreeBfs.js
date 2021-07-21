@@ -8,20 +8,19 @@ class TreeNode {
 };
 
 const traverse = function(root) {
-  if (!root) return [];
-  result = []; // [[9,10,5][7,12],[1]]
-  const queue = [root]; // []
+  if (!root) return []
+  let result = [];
+  let queue = [root];
 
   while (queue.length > 0) {
-    const currQueueSize = queue.length; // 3
-    const currentLevel = []; // [9, 10, 5]
+    const queueLevel = queue.length;
+    const currentLevel = [];
+    for (let i = 0; i < queueLevel; i++) {
+      const node = queue.shift();
 
-    for (let i = 0; i < currQueueSize; i++) { // 3 < 3 === false
-      const currentNode = queue.shift(); // 5
-      currentLevel.push(currentNode.value);
-
-      if(currentNode.left !== null) queue.push(currentNode.left)
-      if(currentNode.right !== null) queue.push(currentNode.right)
+      currentLevel.push(node.value);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
     }
     result.unshift(currentLevel);
   }
