@@ -1,36 +1,34 @@
 const shortestWindowSort = (arr) => {
-  let low = 0;
-  let high = arr.length - 1;
+  let minOutOfOrder = Infinity;
+  let maxOutofOrder = -Infinity;
 
-  while (low < arr.length - 1 && arr[low] <= arr[low + 1]) {
-    low += 1;
-  };
+  for (let i = 0; i < arr.length; i++) {
+    if (outOfOrder(arr[i], i, arr)) {
+      minOutOfOrder = Math.min(minOutOfOrder, arr[i]);
+      maxOutofOrder = Math.max(maxOutofOrder, arr[i]);
+    }
+  }
+  
+  if (minOutOfOrder === Infinity) return 0
+  let leftIdx = 0;
 
-  if (low === arr.length - 1) {
-    return 0
-  };
-
-  while (high > 0 && arr[high] >= arr[high - 1]) {
-    high -= 1;
+  while (minOutOfOrder >= arr[leftIdx]) {
+    leftIdx += 1;
   }
 
-  let maxSub = -Infinity;
-  let minSub = Infinity;
-
-  for (let i = low; i <= high; i++) {
-    maxSub = Math.max(maxSub, arr[i]);
-    minSub = Math.min(maxSub, arr[i]);
+  let rightIdx = arr.length - 1
+  while (maxOutofOrder <= arr[rightIdx]) {
+    rightIdx -= 1;
   }
 
-  while (low > 0 && arr[low - 1] > minSub) {
-    low -= 1;
-  } 
+  return rightIdx - leftIdx + 1;
+}
 
-  while (high < arr.length - 1 && arr[high + 1] < maxSub) {
-    hight += 1;
-  }
+const outOfOrder = (num, idx, arr) => {
+  if (idx === 0) return num > arr[idx + 1];
+  if (idx === arr.length - 1) return num < arr[idx - 1];
 
-  return high - low + 1;
+  return num < arr[idx - 1] || num > arr[idx + 1];
 }
 
 // Time Complexity: O(N);
