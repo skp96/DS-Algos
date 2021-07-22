@@ -30,3 +30,7 @@ const findPathsHelper = (root, sum, allPaths, currPath) => {
   //remove last element from currPath as backtracking to the top so currPath only contains the root node
   currPath.pop();
 }
+
+// Time Complexity: O(N^2);
+// Space Complexity: O(N^2)
+
