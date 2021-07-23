@@ -32,31 +32,6 @@ class Interval {
 
 const merge = (intervals) => {
 
-  if (intervals.length < 2) {
-    return intervals;
-  }
-
-  intervals.sort((a,b) => a.start - b.start);
-
-  const merged = [];
-  let start = intervals[0].start;
-  let end = intervals[0].end;
-
-  for (let i = 1; i < intervals.length; i++) {
-    const currInterval = intervals[i];
-
-      // Check if they overlapp
-    if (currInterval.start <= end) {
-      end = Math.max(currInterval.end, end)
-    } else {
-      // they do not overlapp
-      merged.push([new Interval(start, end)]);
-      start = currInterval.start
-      end = currInterval.end
-    }
-  }
-  merged.push(new Interval(start, end));
-  return merged;
 } 
 
 // Time Complexity: O(nlogn + n) ==> O(nlogn)
