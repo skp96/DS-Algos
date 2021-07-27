@@ -38,6 +38,8 @@ const merge = (intervals) => {
   intervals.sort((a, b) => a.start - b.start);
 
   const mergedIntervals = [];
+
+  // to keep track of merged intervals
   let start = intervals[0].start,
     end = intervals[0].end;
     
