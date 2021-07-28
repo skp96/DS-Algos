@@ -30,10 +30,10 @@ const zigzagTraverse = (array) => {
         if (col === width) {
           row += 1;
         } else {
-          col += 1
+          col += 1;
         }
       } else {
-        row += 1;
+        row -= 1;
         col += 1;
       }
     }
