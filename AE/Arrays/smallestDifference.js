@@ -36,7 +36,35 @@ const smallestDifferenceNaive = (arrayOne, arrayTwo) => {
 // Space Complexity: O(1);
 
 const smallestDifferenceOptimized = (arrayOne, arrayTwo) => {
+  let smallestDiff = Infinity;
+  let result = [];
 
+  // by sorting the search for the smallest difference begins with the smallest elements from both the respective inputs
+  // and unnecessary operations can be avoided
+  arrayOne.sort((a,b) => a - b);
+  arrayTwo.sort((a,b) => a - b);
+
+  let idx1 = 0;
+  let idx2 = 0;
+
+  while (idx1 < arrayOne.length && idx2 < arrayTwo.length) {
+    const num1 = arrayOne[idx1];
+    const num2 = arrayTwo[idx2];
+
+    const absDiff = Math.abs(num1 - num2);
+    if (absDiff < smallestDiff) {
+      smallestDiff = absDiff;
+      result = [num1, num2];
+    }
+
+    // searching for the smalelst difference, so close the gap by moving the pointer of the smaller number
+    if (num1 < num2) {
+      idx1 += 1
+    } else {
+      idx2 += 1;
+    }
+  }
+  return result;
 }
 
 // Time Complexitty: O(NlogN + MlogM);

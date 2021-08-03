@@ -2,8 +2,8 @@ const findHappyNumber = (num) => {
   let fast = num;
   let slow = num;
   while (true) {
-    fast = findSquare(findSquare(num));
-    slow = findSquare(num);
+    fast = findSquare(findSquare(fast));
+    slow = findSquare(slow);
 
     if (fast === slow) {
       break
